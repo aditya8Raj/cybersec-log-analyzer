@@ -1,0 +1,42 @@
+# Log Analyzer Tool Requirements
+# This tool uses only Python standard library modules for maximum compatibility
+
+# Core dependencies (all part of Python standard library)
+# - re (regex operations)
+# - json (JSON export functionality)
+# - csv (CSV export functionality)
+# - argparse (command-line argument parsing)
+# - collections (defaultdict, Counter)
+# - datetime (timestamp handling)
+# - typing (type hints)
+# - os (file operations)
+# - sys (system operations)
+
+# Optional dependencies for enhanced functionality
+# Uncomment and install these if you want additional features:
+
+# For advanced data analysis and visualization
+# pandas>=1.3.0
+# matplotlib>=3.5.0
+# seaborn>=0.11.0
+
+# For IP geolocation (requires API key)
+# requests>=2.25.0
+# geoip2>=4.5.0
+
+# For advanced threat intelligence
+# shodan>=1.25.0
+
+# For web dashboard (Streamlit version)
+# streamlit>=1.10.0
+# plotly>=5.0.0
+
+# For enhanced security features
+# hashlib (already in standard library)
+# cryptography>=3.4.0
+
+# Development and testing
+# pytest>=6.2.0
+# pytest-cov>=2.12.0
+# black>=21.5.0
+# flake8>=3.9.0
