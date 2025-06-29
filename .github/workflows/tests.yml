@@ -11,13 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9, "3.10", "3.11"]
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -26,34 +26,41 @@ jobs:
           python -m pip install --upgrade pip
           # No external dependencies required - using standard library only
 
-      - name: Lint with flake8 (if available)
+      - name: Verify Python installation
         run: |
-          pip install flake8 || echo "flake8 not required"
-          # Stop the build if there are Python syntax errors or undefined names
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics || echo "Linting skipped"
-          # Exit-zero treats all errors as warnings
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics || echo "Linting skipped"
+          python --version
+          python -c "import sys; print(f'Python {sys.version}')"
 
-      - name: Run tests
+      - name: Run unit tests
         run: |
           python test_analyzer.py
 
-      - name: Test CLI functionality
+      - name: Test basic CLI functionality
         run: |
-          python analyzer.py logs/auth.log --help
+          python analyzer.py --help
+
+      - name: Test with sample log file
+        run: |
           python analyzer.py logs/auth.log --quiet
-          python analyzer.py logs/auth.log --export csv --output test_output.csv
-          python analyzer.py logs/auth.log --export json --output test_output.json
-          python analyzer.py logs/auth.log --top-attackers 5
+
+      - name: Test export functionality
+        run: |
+          python analyzer.py logs/auth.log --export csv --output test_output.csv --quiet
+          python analyzer.py logs/auth.log --export json --output test_output.json --quiet
+
+      - name: Test analysis features
+        run: |
+          python analyzer.py logs/auth.log --top-attackers 5 --quiet
           python analyzer.py logs/auth.log --check-ip 192.168.1.10
 
       - name: Test demo script
         run: |
           python demo.py
 
-      - name: Verify output files
+      - name: Verify output files were created
         run: |
-          ls -la *.csv *.json || echo "Output files created successfully"
+          test -f test_output.csv && echo "CSV file created successfully"
+          test -f test_output.json && echo "JSON file created successfully"
 
       - name: Clean up test files
         run: |
