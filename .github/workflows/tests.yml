@@ -2,59 +2,59 @@ name: Tests
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [main, develop]
   pull_request:
-    branches: [ main, develop ]
+    branches: [main, develop]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9, '3.10', '3.11']
+        python-version: [3.6, 3.7, 3.8, 3.9, "3.10", "3.11"]
 
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
-      with:
-        python-version: ${{ matrix.python-version }}
-    
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        # No external dependencies required - using standard library only
-        
-    - name: Lint with flake8 (if available)
-      run: |
-        pip install flake8 || echo "flake8 not required"
-        # Stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics || echo "Linting skipped"
-        # Exit-zero treats all errors as warnings
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics || echo "Linting skipped"
-    
-    - name: Run tests
-      run: |
-        python test_analyzer.py
-    
-    - name: Test CLI functionality
-      run: |
-        python analyzer.py logs/auth.log --help
-        python analyzer.py logs/auth.log --quiet
-        python analyzer.py logs/auth.log --export csv --output test_output.csv
-        python analyzer.py logs/auth.log --export json --output test_output.json
-        python analyzer.py logs/auth.log --top-attackers 5
-        python analyzer.py logs/auth.log --check-ip 192.168.1.10
-    
-    - name: Test demo script
-      run: |
-        python demo.py
-    
-    - name: Verify output files
-      run: |
-        ls -la *.csv *.json || echo "Output files created successfully"
-        
-    - name: Clean up test files
-      run: |
-        rm -f *.csv *.json
+      - uses: actions/checkout@v3
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # No external dependencies required - using standard library only
+
+      - name: Lint with flake8 (if available)
+        run: |
+          pip install flake8 || echo "flake8 not required"
+          # Stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics || echo "Linting skipped"
+          # Exit-zero treats all errors as warnings
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics || echo "Linting skipped"
+
+      - name: Run tests
+        run: |
+          python test_analyzer.py
+
+      - name: Test CLI functionality
+        run: |
+          python analyzer.py logs/auth.log --help
+          python analyzer.py logs/auth.log --quiet
+          python analyzer.py logs/auth.log --export csv --output test_output.csv
+          python analyzer.py logs/auth.log --export json --output test_output.json
+          python analyzer.py logs/auth.log --top-attackers 5
+          python analyzer.py logs/auth.log --check-ip 192.168.1.10
+
+      - name: Test demo script
+        run: |
+          python demo.py
+
+      - name: Verify output files
+        run: |
+          ls -la *.csv *.json || echo "Output files created successfully"
+
+      - name: Clean up test files
+        run: |
+          rm -f *.csv *.json

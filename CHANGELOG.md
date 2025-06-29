@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2025-06-30
 
 ### Added
+
 - Initial release of Log Analyzer Tool for SOC Analysts
 - SSH authentication log parsing and analysis
 - Brute-force attack detection with configurable thresholds
@@ -33,6 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Professional documentation
 
 ### Security Features
+
 - Accurate regex patterns for log parsing
 - IP address validation
 - Threat classification system
@@ -40,6 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Scalable log processing
 
 ### Documentation
+
 - Comprehensive README with usage examples
 - Code documentation with docstrings
 - Unit tests with 100% pass rate
@@ -48,6 +51,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - VS Code integration guide
 
 ### Technical Details
+
 - Python 3.6+ compatibility
 - Standard library only (no external dependencies required)
 - Modular design for easy extension

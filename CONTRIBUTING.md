@@ -5,12 +5,14 @@ Thank you for your interest in contributing to the Log Analyzer Tool! This proje
 ## 🤝 How to Contribute
 
 ### Reporting Issues
+
 - Use the GitHub Issues tab to report bugs or request features
 - Include detailed information about the issue
 - Provide sample log entries if relevant
 - Specify your Python version and operating system
 
 ### Suggesting Enhancements
+
 - Open an issue with the "enhancement" label
 - Describe the feature and its benefits for SOC analysts
 - Include use cases and examples if possible
@@ -18,19 +20,22 @@ Thank you for your interest in contributing to the Log Analyzer Tool! This proje
 ### Code Contributions
 
 #### Prerequisites
+
 - Python 3.6 or higher
 - Basic understanding of cybersecurity concepts
 - Familiarity with log analysis and regex patterns
 
 #### Development Setup
+
 1. Fork the repository
-2. Clone your fork: `git clone https://github.com/yourusername/log-analyzer-tool.git`
+2. Clone your fork: `git clone https://github.com/aditya8Raj/cybersec-log-analyzer.git`
 3. Create a virtual environment: `python -m venv venv`
 4. Activate it: `source venv/bin/activate` (Linux/Mac) or `venv\Scripts\activate` (Windows)
 5. Install development dependencies (if any)
 6. Run tests: `python test_analyzer.py`
 
 #### Making Changes
+
 1. Create a feature branch: `git checkout -b feature/your-feature-name`
 2. Make your changes following the coding standards below
 3. Add tests for new functionality
@@ -42,6 +47,7 @@ Thank you for your interest in contributing to the Log Analyzer Tool! This proje
 ## 📝 Coding Standards
 
 ### Python Style
+
 - Follow PEP 8 guidelines
 - Use meaningful variable and function names
 - Include docstrings for all functions and classes
@@ -49,6 +55,7 @@ Thank you for your interest in contributing to the Log Analyzer Tool! This proje
 - Keep functions focused and single-purpose
 
 ### Security Considerations
+
 - Validate all inputs, especially IP addresses and file paths
 - Use secure regex patterns that don't introduce vulnerabilities
 - Handle errors gracefully without exposing sensitive information
@@ -56,6 +63,7 @@ Thank you for your interest in contributing to the Log Analyzer Tool! This proje
 - Consider performance with large log files
 
 ### Testing Requirements
+
 - Write unit tests for new functions
 - Test edge cases and error conditions
 - Ensure tests are deterministic and reliable
@@ -63,6 +71,7 @@ Thank you for your interest in contributing to the Log Analyzer Tool! This proje
 - Maintain test coverage
 
 ### Documentation
+
 - Update README.md for new features
 - Add examples for new command-line options
 - Update help text and usage information
@@ -73,21 +82,25 @@ Thank you for your interest in contributing to the Log Analyzer Tool! This proje
 When contributing, prioritize these security aspects:
 
 ### Detection Accuracy
+
 - Minimize false positives in threat detection
 - Ensure regex patterns are precise and efficient
 - Test against various log formats and edge cases
 
 ### Performance
+
 - Optimize for large log file processing
 - Consider memory usage with massive datasets
 - Profile code for bottlenecks
 
 ### Reliability
+
 - Handle malformed log entries gracefully
 - Implement robust error handling
 - Validate file permissions and access
 
 ### Extensibility
+
 - Design modular code for easy pattern additions
 - Use configuration files for customizable settings
 - Support multiple log formats where possible
@@ -95,6 +108,7 @@ When contributing, prioritize these security aspects:
 ## 🎯 Contribution Ideas
 
 ### High Priority
+
 - Support for additional log formats (Apache, Nginx, Windows Event Logs)
 - Geographic IP analysis and visualization
 - Time-based attack pattern detection
@@ -102,6 +116,7 @@ When contributing, prioritize these security aspects:
 - Real-time log monitoring capabilities
 
 ### Medium Priority
+
 - Web dashboard using Streamlit or Flask
 - Database storage for historical analysis
 - Email/Slack notifications for critical threats
@@ -109,6 +124,7 @@ When contributing, prioritize these security aspects:
 - Docker containerization
 
 ### Low Priority
+
 - GUI application using tkinter or PyQt
 - Machine learning-based anomaly detection
 - Log correlation across multiple sources
@@ -117,12 +133,14 @@ When contributing, prioritize these security aspects:
 ## 📋 Pull Request Process
 
 1. **Before submitting:**
+
    - Ensure your code follows the style guidelines
    - Run all tests and confirm they pass
    - Update documentation as needed
    - Test with the provided sample log file
 
 2. **Pull request requirements:**
+
    - Clear title and description
    - Reference any related issues
    - Include screenshots for UI changes
@@ -154,6 +172,7 @@ When contributing, prioritize these security aspects:
 ## 🎖️ Recognition
 
 Contributors will be:
+
 - Listed in the README.md contributors section
 - Credited in release notes for significant contributions
 - Mentioned in commit messages for their contributions
